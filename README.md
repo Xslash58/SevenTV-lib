@@ -1,3 +1,4 @@
+[![NuGet](https://img.shields.io/nuget/v/SevenTV-lib.svg?label=NuGet)](https://nuget.org/packages/SevenTV-lib)
 # SevenTV-lib
 SevenTV-lib implements 7TV V3 API into easy to use C# library. I'll try to update this library as frequently as possible with new implementations from 7TV side.
 
