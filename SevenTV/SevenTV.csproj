@@ -10,9 +10,9 @@
     <PackageProjectUrl>https://github.com/Xslash58/SevenTV-lib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Xslash58/SevenTV-lib</RepositoryUrl>
     <PackageTags>7tv;v3</PackageTags>
-    <PackageLicenseFile>C:\Users\kapim\source\repos\SevenTV\LICENSE.txt</PackageLicenseFile>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0</FileVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
