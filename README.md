@@ -2,6 +2,14 @@
 # SevenTV-lib
 SevenTV-lib implements 7TV V3 API into easy to use C# library. I'll try to update this library as frequently as possible with new implementations from 7TV side.
 
+# Example usage
+```csharp
+var sevenTv = new SevenTV.SevenTV();
+
+SevenTV.Types.User user = await sevenTv.GetUser("60b67e8f561dfc1d80f217c5");
+Console.WriteLine(user.username);
+```
+
 # Dependencies
 SevenTV-lib is using [Newtonsoft.JSON](https://www.newtonsoft.com/json) to deserialize data from 7TV API.
 
