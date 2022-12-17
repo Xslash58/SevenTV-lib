@@ -64,6 +64,20 @@ namespace SevenTV
 
             return conn;
         }
+        public async Task<TwitchUser[]?> GetTwitchUser(string name)
+        {
+            string finalurl = $"https://api.ivr.fi/v2/twitch/user?login={name}";
+            Uri uri = new Uri(finalurl); 
+            var responseBody = await GetJSON(uri).ConfigureAwait(false);
+
+            if (responseBody == null)
+                return null;
+
+            TwitchUser[]? ttvUser;
+            ttvUser = JsonConvert.DeserializeObject<TwitchUser[]>(responseBody);
+
+            return ttvUser;
+        }
         public async Task<User?> GetUser(string ID)
         {
             string finalurl = _baseurl + $"/users/{ID}";

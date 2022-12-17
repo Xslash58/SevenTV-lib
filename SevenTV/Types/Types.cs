@@ -82,4 +82,37 @@
         public long size = 0;
         public string? format = null;
     }
+    public class TwitchUser
+    {
+        public bool banned = false;
+        public string? displayName = null;
+        public string? login = null;
+        public string? id = null;
+        public string? bio = null;
+        public int follows = 0;
+        public int followers = 0;
+        public int panelCount = 0;
+        public string? chatColor = null;
+        public string? logo = null;
+        public string? banner = null;
+        public bool verifiedBot = false;
+        public string? createdAt = null;
+        public string? updatedAt = null;
+        public string? emotePrefix = null;
+        public TwitchRoles roles = new TwitchRoles();
+        public TwitchBadge[]? badges = null;
+    }
+    public class TwitchRoles
+    {
+        public bool isAffiliate = false;
+        public bool isPartner = false;
+        public string? isStaff = null;
+    }
+    public class TwitchBadge
+    {
+        public string? setID = null;
+        public string? title = null;
+        public string? description = null;
+        public string? version = null;
+    }
 }
