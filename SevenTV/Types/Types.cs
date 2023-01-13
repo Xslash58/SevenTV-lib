@@ -21,6 +21,7 @@
         public string? avatar_url = null;
         public string? biography = null;
         public Style? style = null;
+        public EmoteSet[]? emote_sets = null;
         public Editor[]? editors = null;
         public string[]? roles = null;
         public Connection[]? connections = null;
