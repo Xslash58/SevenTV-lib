@@ -21,6 +21,7 @@
         public string? avatar_url = null;
         public string? biography = null;
         public Style? style = null;
+        public EmoteSet[]? emote_sets = null;
         public Editor[]? editors = null;
         public string[]? roles = null;
         public Connection[]? connections = null;
@@ -95,7 +96,7 @@
         public string? chatColor = null;
         public string? logo = null;
         public string? banner = null;
-        public bool verifiedBot = false;
+        public bool? verifiedBot = null;
         public string? createdAt = null;
         public string? updatedAt = null;
         public string? emotePrefix = null;
