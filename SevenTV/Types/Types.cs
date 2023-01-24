@@ -96,7 +96,7 @@
         public string? chatColor = null;
         public string? logo = null;
         public string? banner = null;
-        public bool verifiedBot = false;
+        public bool? verifiedBot = null;
         public string? createdAt = null;
         public string? updatedAt = null;
         public string? emotePrefix = null;
