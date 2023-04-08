@@ -9,7 +9,7 @@ var sevenTv = new SevenTV.SevenTV();
 SevenTV.Types.User user = await sevenTv.GetUser("60b67e8f561dfc1d80f217c5");
 Console.WriteLine(user.username);
 ```
-More on [wiki](https://github.com/Xslash58/SevenTV-lib/wiki)
+More on [wiki](https://github.com/Xslash58/SevenTV-lib/wiki)<br>
 You can see examples in [EmoteGuesser](https://github.com/Xslash58/emoteguesser)
 
 # Dependencies
