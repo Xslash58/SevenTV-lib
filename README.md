@@ -10,6 +10,7 @@ SevenTV.Types.User user = await sevenTv.GetUser("60b67e8f561dfc1d80f217c5");
 Console.WriteLine(user.username);
 ```
 More on [wiki](https://github.com/Xslash58/SevenTV-lib/wiki)
+You can see examples in [EmoteGuesser](https://github.com/Xslash58/emoteguesser)
 
 # Dependencies
 SevenTV-lib is using [Newtonsoft.JSON](https://www.newtonsoft.com/json) to deserialize data from 7TV API.
