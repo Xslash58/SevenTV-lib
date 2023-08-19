@@ -1,6 +1,6 @@
 ﻿namespace SevenTV.Types
 {
-    public enum ConnectionType { TWITCH, YOUTUBE, DISCORD };
+    public enum ConnectionType { TWITCH, YOUTUBE, DISCORD, KICK };
     public class Connection
     {
         public string? id = null;
@@ -96,7 +96,7 @@
         public string? chatColor = null;
         public string? logo = null;
         public string? banner = null;
-        public bool? verifiedBot = null;
+        public string? verifiedBot = null;
         public string? createdAt = null;
         public string? updatedAt = null;
         public string? emotePrefix = null;

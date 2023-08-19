@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net.Http;
 using SevenTV.Types;
+using System.Net.Http.Headers;
 
 namespace SevenTV
 {
     public class SevenTV
     {
-        public readonly string _baseurl = "https://7tv.io/v3";
+        public const string _baseurl = "https://7tv.io/v3";
         private HttpClient _client;
 
         public SevenTV()
@@ -96,7 +97,7 @@ namespace SevenTV
 
         private async Task<string?> GetJSON(Uri uri)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{uri}?time={DateTime.Now}");
             var response = await _client.SendAsync(request);
 
             if (!response.IsSuccessStatusCode)
