@@ -90,9 +90,9 @@
         public string? login = null;
         public string? id = null;
         public string? bio = null;
-        public int follows = 0;
-        public int followers = 0;
-        public int panelCount = 0;
+        public int? follows = 0;
+        public int? followers = 0;
+        public int? panelCount = 0;
         public string? chatColor = null;
         public string? logo = null;
         public string? banner = null;

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net.Http;
 using SevenTV.Types;
-using System.Net.Http.Headers;
 
 namespace SevenTV
 {
@@ -97,7 +93,8 @@ namespace SevenTV
 
         private async Task<string?> GetJSON(Uri uri)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{uri}?time={DateTime.Now}");
+            string timeFix = uri.ToString().Contains("?") ? "&time" : "?time";
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{uri}{timeFix}={DateTime.Now}");
             var response = await _client.SendAsync(request);
 
             if (!response.IsSuccessStatusCode)
