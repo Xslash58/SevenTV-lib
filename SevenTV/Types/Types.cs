@@ -86,6 +86,7 @@
     public class TwitchUser
     {
         public bool banned = false;
+        public string? banReason = null;
         public string? displayName = null;
         public string? login = null;
         public string? id = null;
@@ -102,12 +103,17 @@
         public string? emotePrefix = null;
         public TwitchRoles roles = new TwitchRoles();
         public TwitchBadge[]? badges = null;
+        public int? chatterCount = null;
+        public TwitchChatSettings chatSettings = new TwitchChatSettings();
+        public TwitchStream? stream = null;
+        public TwitchLastStream? lastBroadcast = null;
+        public TwitchPanel[] panels = new TwitchPanel[0];
     }
     public class TwitchRoles
     {
         public bool isAffiliate = false;
         public bool isPartner = false;
-        public string? isStaff = null;
+        public bool? isStaff = null;
     }
     public class TwitchBadge
     {
@@ -115,5 +121,40 @@
         public string? title = null;
         public string? description = null;
         public string? version = null;
+    }
+    public class TwitchChatSettings
+    {
+        public int? chatDelayMs = null;
+        public int? followersOnlyDurationMinutes = null;
+        public int? slowModeDurationSeconds = null;
+        public bool blockLinks = false;
+        public bool isSubscribersOnlyModeEnabled = false;
+        public bool isEmoteOnlyModeEnabled = false;
+        public bool isFastSubsModeEnabled = false;
+        public bool isUniqueChatModeEnabled = false;
+        public bool requireVerifiedAccount = false;
+        public string[] rules = new string[0];
+    }
+    public class TwitchStream
+    {
+        public string? title = null;
+        public string id = string.Empty;
+        public string createdAt = string.Empty;
+        public string type = string.Empty;
+        public int viewersCount = 0;
+        public TwitchGame game = new TwitchGame();
+    }
+    public class TwitchGame
+    {
+        public string displayName = string.Empty;
+    }
+    public class TwitchLastStream
+    {
+        public string? startedAt = null;
+        public string? title = null;
+    }
+    public class TwitchPanel
+    {
+        public string id = string.Empty;
     }
 }
