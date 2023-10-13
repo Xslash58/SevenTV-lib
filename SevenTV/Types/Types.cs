@@ -47,8 +47,16 @@
         public bool privileged = false;
         public Emote[]? emotes = null;
         public int capacity = 0;
+        public Origin[]? origins = null;
         public User? owner = null;
     }
+    public class Origin
+    {
+        public string? id = null;
+        public int weight = 0;
+        public object[]? slices = null;
+    }
+
     public class Emote
     {
         public string? id = null;
