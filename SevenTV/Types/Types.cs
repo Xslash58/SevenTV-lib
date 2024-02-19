@@ -17,7 +17,7 @@
         public string? id = null;
         public string? username = null;
         public string? display_name = null;
-        public long createdAt = 0;
+        public long created_at = 0;
         public string? avatar_url = null;
         public string? biography = null;
         public Style? style = null;
