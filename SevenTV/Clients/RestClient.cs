@@ -2,18 +2,21 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net.Http;
-using SevenTV.Types;
+using SevenTV.Types.Rest;
 
-namespace SevenTV
+namespace SevenTV.Clients
 {
-    public class SevenTV
+    public class RestClient
     {
         public const string _baseurl = "https://7tv.io/v3";
         private HttpClient _client;
 
-        public SevenTV()
+        public RestClient(string? token = null)
         {
             _client = new HttpClient();
+
+            if(!string.IsNullOrEmpty(token))
+                _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
         }
 
         public async Task<EmoteSet?> GetEmoteSet(string ID)
@@ -64,7 +67,7 @@ namespace SevenTV
         public async Task<TwitchUser[]?> GetTwitchUser(string name)
         {
             string finalurl = $"https://api.ivr.fi/v2/twitch/user?login={name}";
-            Uri uri = new Uri(finalurl); 
+            Uri uri = new Uri(finalurl);
             var responseBody = await GetJSON(uri).ConfigureAwait(false);
 
             if (responseBody == null)

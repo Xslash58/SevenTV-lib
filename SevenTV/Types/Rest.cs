@@ -1,4 +1,4 @@
-﻿namespace SevenTV.Types
+﻿namespace SevenTV.Types.Rest
 {
     public enum ConnectionType { TWITCH, YOUTUBE, DISCORD, KICK };
     public class Connection

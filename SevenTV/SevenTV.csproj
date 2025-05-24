@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <Authors>Xslash</Authors>
     <Description>An unofficial 7TV API library for C#</Description>
-    <PackageVersion>1.1.6</PackageVersion>
+    <PackageVersion>1.2.0</PackageVersion>
     <PackageProjectUrl>https://github.com/Xslash58/SevenTV-lib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Xslash58/SevenTV-lib</RepositoryUrl>
     <PackageTags>7tv;v3</PackageTags>
