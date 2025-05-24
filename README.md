@@ -4,13 +4,16 @@ SevenTV-lib implements 7TV V3 API into easy to use C# library. I'll try to updat
 
 # Example usage
 ```csharp
-var sevenTv = new SevenTV.SevenTV();
+var client = new SevenTV.SevenTVClient();
 
-SevenTV.Types.User user = await sevenTv.GetUser("60b67e8f561dfc1d80f217c5");
+SevenTV.Types.Rest.User user = await client.rest.GetUser("01F74DWQMR0005C7FW3P0F45Y5");
 Console.WriteLine(user.username);
+
+var addResponse = await client.graphql.AddEmote("01F6WP22CR0004YCK11WAVZHEW", "01F74DWQMR0005C7FW3P0F45Y5");
+
 ```
 More on [wiki](https://github.com/Xslash58/SevenTV-lib/wiki)<br>
-You can see examples in [EmoteGuesser](https://github.com/Xslash58/emoteguesser)
+You can see examples in [EmoteGuesser](https://github.com/Xslash58/emoteguesser) (pre-gql version)
 
 # Dependencies
 SevenTV-lib is using [Newtonsoft.JSON](https://www.newtonsoft.com/json) to deserialize data from 7TV API.
