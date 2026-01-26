@@ -121,13 +121,14 @@ namespace SevenTV.Clients
                 setId = emoteSetId
             });
         }
-        public async Task<Response<RemoveEmoteResponse>> RemoveEmote(string emoteId, string emoteSetId)
+        public async Task<Response<RemoveEmoteResponse>> RemoveEmote(string emoteId, string emoteSetId, string? emoteAlias = null)
         {
             return await SendQueryAsync<RemoveEmoteResponse>(Mutations.RemoveEmote, new
             {
                 emote = new
                 {
-                    emoteId
+                    emoteId,
+                    alias = emoteAlias
                 },
                 setId = emoteSetId
             });
