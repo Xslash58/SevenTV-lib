@@ -329,6 +329,19 @@ query EmoteSearch($query: String, $tags: [String!]!, $sortBy: SortBy!, $filters:
     __typename
   }
 }";
+        public static string EmoteIdFromSet = @"
+query EmoteIdFromSet($emoteSetId: Id!, $query: String, $page: Int!, $perPage: Int!) {
+  emoteSets {
+    emoteSet(id: $emoteSetId) {
+      emotes(query: $query, page: $page, perPage: $perPage) {
+        items {
+          id
+          alias
+        }
+      }
+    }
+  }
+}";
         public static string UserEditors = @"
 query UserEditors($userId: Id!) {
   users {

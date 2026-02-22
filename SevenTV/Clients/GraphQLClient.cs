@@ -107,6 +107,16 @@ namespace SevenTV.Clients
                 tags = tags == null ? Array.Empty<string>() : tags,
             });
         }
+        public async Task<Response<EmoteSetEmoteSearchResponse>> GetEmoteIdFromSet(string query, string emoteSetId, int page = 1, int perPage = 1)
+        {
+            return await SendQueryAsync<EmoteSetEmoteSearchResponse>(Queries.EmoteIdFromSet, new
+            {
+                query,
+                emoteSetId,
+                page,
+                perPage
+            });
+        }
 
         // Mutations
         public async Task<Response<AddEmoteResponse>> AddEmote(string emoteId, string emoteSetId, string? alias = null)

@@ -31,6 +31,10 @@ namespace SevenTV.Types.GraphQL
     {
         public EmotesWrapper? Emotes { get; set; }
     }
+    public class EmoteSetEmoteSearchResponse
+    {
+        public EmoteSetsWrapper? EmoteSets { get; set; }
+    }
     public class AddEmoteResponse
     {
         public EmoteSetsAddWrapper? EmoteSets { get; set; }
@@ -146,6 +150,11 @@ namespace SevenTV.Types.GraphQL
         public bool ManagePersonalEmoteSet { get; set; }
         public bool ManageBilling { get; set; }
         public bool Admin { get; set; }
+    }
+
+    public class EmoteSetsWrapper
+    {
+        public EmoteSetOnlyEmotes? EmoteSet { get; set; }
     }
 
     public class EmotesWrapper
@@ -342,6 +351,11 @@ namespace SevenTV.Types.GraphQL
         public string Kind { get; set; } = string.Empty;
         public string[] Tags { get; set; } = new string[0];
         public Owner? Owner { get; set; }
+    }
+
+    public class EmoteSetOnlyEmotes
+    {
+        public Emotes? Emotes { get; set; }
     }
 
     public class EmoteSetsCapacityWrapper
