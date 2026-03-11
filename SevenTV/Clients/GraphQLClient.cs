@@ -76,6 +76,13 @@ namespace SevenTV.Clients
                 id = userId
             });
         }
+        public async Task<Response<JObject>> GetUserActiveCosmetics(string userId)
+        {
+            return await SendQueryAsync<JObject>(Queries.ActiveCosmetics, new
+            {
+                id = userId
+            });
+        }
         public async Task<Response<EmoteSearchResponse>> GetEmoteSearch(string query = "",
             int page = 1,
             int perPage = 72,
@@ -278,7 +285,7 @@ namespace SevenTV.Clients
             });
         }
 
-        public async Task<Response<SetActiveBadgeResponse>> SetActiveBadge(string badgeId, string userId)
+        public async Task<Response<SetActiveBadgeResponse>> SetActiveBadge(string? badgeId, string userId)
         {
             return await SendQueryAsync<SetActiveBadgeResponse>(Mutations.SetActiveBadge, new
             {
@@ -286,7 +293,7 @@ namespace SevenTV.Clients
                 id = userId
             });
         }
-        public async Task<Response<SetActivePaintResponse>> SetActivePaint(string paintId, string userId)
+        public async Task<Response<SetActivePaintResponse>> SetActivePaint(string? paintId, string userId)
         {
             return await SendQueryAsync<SetActivePaintResponse>(Mutations.SetActivePaint, new
             {

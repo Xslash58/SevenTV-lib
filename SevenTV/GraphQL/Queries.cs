@@ -192,6 +192,24 @@ query UserInventory($id: Id!) {
     __typename
   }
 }";
+        public static string ActiveCosmetics = @"
+query ActiveCosmetics($id: Id!) {
+  users {
+    user(id: $id) {
+      style {
+        activeBadge {
+          id
+          name
+          description
+        }
+        activePaint {
+            id
+            name
+        }
+      }
+    }
+  }
+}";
 
         public static string EmoteSearch = @"
 query EmoteSearch($query: String, $tags: [String!]!, $sortBy: SortBy!, $filters: Filters, $page: Int, $perPage: Int!, $isDefaultSetSet: Boolean!, $defaultSetId: Id!) {
