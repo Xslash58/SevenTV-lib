@@ -14,11 +14,12 @@ namespace SevenTV.Clients
     {
         private readonly HttpClient _http;
 
-        public GraphQLClient(string? token = null)
+        internal GraphQLClient(string? token = null, string? userAgent = null)
         {
             _http = new HttpClient();
             _http.BaseAddress = new Uri("https://7tv.io/v4/gql");
-            
+            _http.DefaultRequestHeaders.UserAgent.ParseAdd(string.IsNullOrEmpty(userAgent) ? "SevenTV-lib/1.0.0" : userAgent);
+
             if (!string.IsNullOrEmpty(token))
                 _http.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
         }

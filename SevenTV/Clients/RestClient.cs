@@ -11,11 +11,12 @@ namespace SevenTV.Clients
         public const string _baseurl = "https://7tv.io/v3";
         private HttpClient _client;
 
-        public RestClient(string? token = null)
+        internal RestClient(string? token = null, string? userAgent = null)
         {
             _client = new HttpClient();
+            _client.DefaultRequestHeaders.UserAgent.ParseAdd(string.IsNullOrEmpty(userAgent) ? "SevenTV-lib/1.0.0" : userAgent);
 
-            if(!string.IsNullOrEmpty(token))
+            if (!string.IsNullOrEmpty(token))
                 _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
         }
 
@@ -92,6 +93,35 @@ namespace SevenTV.Clients
             user = JsonConvert.DeserializeObject<User>(responseBody);
 
             return user;
+        }
+
+        /// <summary>
+        /// Sends a presence update to the 7TV API, which can be used to update the user's cosmetics.
+        /// This is typically used to trigger the display of user cosmetics on specific platforms
+        /// </summary>
+        /// <param name="userId">The unique 7TV user identifier.</param>
+        /// <param name="targetPlatform">The platform where the user is currently active.</param>
+        /// <param name="targetPlatformId">The platform-specific ID of the channel/room the user is in.</param>
+        /// <returns><see langword="true"/> if the presence was successfully updated; otherwise, <see langword="false"/>.</returns>
+        public async Task<bool> SendPresence(string userId, ConnectionType targetPlatform, string targetPlatformId)
+        {
+            string finalurl = _baseurl + $"/users/{userId}/presences";
+            var request = new HttpRequestMessage(HttpMethod.Post, $"{finalurl}");
+
+            var content = new StringContent($@"
+{{
+    ""kind"": 1,
+    ""passive"": true,
+    ""data"": {{
+        ""platform"": ""{targetPlatform.ToString().ToUpper()}"",
+        ""id"": ""{targetPlatformId}""
+    }}
+}}", null, "application/json");
+            request.Content = content;
+
+            var response = await _client.SendAsync(request);
+
+            return response.IsSuccessStatusCode;
         }
 
         private async Task<string?> GetJSON(Uri uri)
