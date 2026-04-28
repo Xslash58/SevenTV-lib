@@ -102,8 +102,10 @@ namespace SevenTV.Clients
         /// <param name="userId">The unique 7TV user identifier.</param>
         /// <param name="targetPlatform">The platform where the user is currently active.</param>
         /// <param name="targetPlatformId">The platform-specific ID of the channel/room the user is in.</param>
+        /// <param name="passive">If <see langword="true"/> it will emit presence data to the current user only. Defaults to <see langword="false"/>.</param>
+        /// <param name="sessionId">An optional eventapi session ID, needed for passive presences.</param>
         /// <returns><see langword="true"/> if the presence was successfully updated; otherwise, <see langword="false"/>.</returns>
-        public async Task<bool> SendPresence(string userId, ConnectionType targetPlatform, string targetPlatformId)
+        public async Task<bool> SendPresence(string userId, ConnectionType targetPlatform, string targetPlatformId, bool passive = false, string? sessionId = null)
         {
             string finalurl = _baseurl + $"/users/{userId}/presences";
             var request = new HttpRequestMessage(HttpMethod.Post, $"{finalurl}");
@@ -111,7 +113,8 @@ namespace SevenTV.Clients
             var content = new StringContent($@"
 {{
     ""kind"": 1,
-    ""passive"": true,
+    ""passive"": {(passive ? "true" : "false")},
+    {(!string.IsNullOrEmpty(sessionId) ? $"\"session_id\": \"{sessionId}\"," : "")}
     ""data"": {{
         ""platform"": ""{targetPlatform.ToString().ToUpper()}"",
         ""id"": ""{targetPlatformId}""
